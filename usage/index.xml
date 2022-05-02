@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Usage on Deciphering the cis-regulatory code of plant HMs</title>
+    <link>https://cisgrammar.github.io/usage/</link>
+    <description>Recent content in Usage on Deciphering the cis-regulatory code of plant HMs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://cisgrammar.github.io/usage/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Predict histone modification levels</title>
+      <link>https://cisgrammar.github.io/usage/predict/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cisgrammar.github.io/usage/predict/</guid>
+      <description>Predict histone modification levels The easiest way to predict histone modifications levels with DNA sequences using our R script: source(&amp;#34;R1_AthLeaf_predict_HMs.R&amp;#34;) peakKmerResReads.df &amp;lt;- getSeqFeature(peakFile=markPeakFile, k=6) peakFeatures.df &amp;lt;- getMarkerReadsSignal(peakKmerResReads.df=peakKmerResReads.df, bamFile=bamFile,peakFile = markPeakFile) AthLeafPerformance &amp;lt;- cv(peakKmerRes.df = peakFeatures.df) </description>
+    </item>
+    
+    <item>
+      <title>Visualize the performance of HMs predictive models</title>
+      <link>https://cisgrammar.github.io/usage/plot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cisgrammar.github.io/usage/plot/</guid>
+      <description>Use ggplot2 package to plot the preformance of the histone modification models: library(ggpolt2) source(&amp;#34;R1_AthLeaf_predict_HMs.R&amp;#34;) AthLeafPerformance_R_PCC_plot &amp;lt;- getmarkersPerformance.Rsquared.melt1(AthLeafPerformance_R_PCC) ggplot(AthLeafPerformance_R_PCC_plot, aes(x=Marker, y= value, fill=variable)) + geom_bar(stat=&amp;#34;identity&amp;#34;, color=&amp;#34;black&amp;#34;, position=position_dodge()) + geom_errorbar(aes(ymin=value-sd, ymax=value+sd), width=.2, position=position_dodge(.9)) + labs(x = &amp;#34;Histone Marks&amp;#34;,y = &amp;#34;Performance&amp;#34;) + theme(plot.title = element_text(hjust = 0.5)) + scale_y_continuous(sec.axis = dup_axis(name=&amp;#34;Correlation&amp;#34;)) + scale_fill_discrete(name=&amp;#34;Type&amp;#34;) + theme(axis.text.x = element_text(angle=90, hjust=0.1, vjust=0.1)) AthLeafPerformances_obs_pre1 &amp;lt;- lapply(1:length(AthLeafPerformances_obs_pre), function(i) { marker &amp;lt;- gsub(&amp;#34;(\\.bam)?_peaks\\.narrowPeak&amp;#34;,&amp;#34;&amp;#34;,names(AthLeafPerformances_obs_pre)[i]) AthLeafPerformances_obs_pre[[i]]$Marker &amp;lt;- marker AthLeafPerformances_obs_pre[[i]] }) res &amp;lt;- data.</description>
+    </item>
+    
+    <item>
+      <title>Extracting and Visualizing the mark motifs</title>
+      <link>https://cisgrammar.github.io/usage/motif/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cisgrammar.github.io/usage/motif/</guid>
+      <description>Extracting and Visualizing the mark motifs Extract the mark motifs potential regulate the histone modifications by these codes: require(gtools) require(Biostrings) source(&amp;#34;R5_PWM_1201.R&amp;#34;) labc &amp;lt;-getActiveVar(peakSignal.df=mark_pos_neg_KmerRes.df) AthLeafAllLASSOImp[[i]] &amp;lt;- labc aa1 &amp;lt;- getEnrichmentImp(LASSO.impAll=labc,peakFile=markPeakFile) AthLeafAllEnrichmentImp[[i]] &amp;lt;- aa1 bb1 &amp;lt;- getMismatch_k_mers_list(KmerWeight=aa1$newKmerWeight,enrichment.imp=aa1$EF1_df) AthLeafAllMismatch_k_mers_list[[i]] &amp;lt;- bb1 markPWMs &amp;lt;- getEachMarkPWMs(kmerList = bb1,KmerWeight = aa1$newKmerWeight) write_meme(markPWMs, file=markmotif.meme)  Visualize the mark motifs by these codes: library(universalmotif) H3K27me3_AthLeaf_4_YCAAGA &amp;lt;- H3K27me3meme aa &amp;lt;- matrix(0,4,8) bb &amp;lt;- matrix(0,4,3) H3K27me3_AthLeaf_4_YCAAGA &amp;lt;- cbind(cbind(aa,H3K27me3meme[[4]]@motif),bb) p1 &amp;lt;- list(athMeme[[310]]@motif,H3K27me3_AthLeaf_4_YCAAGA) names(p1) &amp;lt;- c(&amp;#34;AT3G15510(NAC)&amp;#34;,&amp;#34;H3K27me3_AthLeaf_4_YCAAGA&amp;#34;) ggseqlogo(p1,nrow = 2) </description>
+    </item>
+    
+  </channel>
+</rss>
