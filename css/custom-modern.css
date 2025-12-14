@@ -132,6 +132,15 @@ article > aside .menu .dd-item div:hover a {
   line-height: 1.7;
 }
 
+.hero-lead a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.hero-lead a:hover {
+  color: #a5f3ff;
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
