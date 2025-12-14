@@ -17,6 +17,15 @@ body {
   color: var(--text);
   font-family: 'Inter', 'Roboto', sans-serif;
   min-height: 100vh;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: #a5f3ff;
 }
 
 header {
@@ -31,6 +40,12 @@ header nav.shortcuts li a label {
 
 header nav.shortcuts li a:hover {
   background: rgba(255, 255, 255, 0.06);
+}
+
+.landing-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2.5rem;
 }
 
 article > aside {
@@ -56,6 +71,19 @@ article > aside .menu .dd-item div:hover a {
   background: transparent;
   color: var(--text);
   padding-bottom: 4rem;
+}
+
+.page h1,
+.page h2,
+.page h3,
+.page h4,
+.page h5 {
+  color: #ffffff;
+  margin-top: 0;
+}
+
+.page p {
+  color: var(--muted);
 }
 
 .nav-select select {
@@ -334,5 +362,9 @@ article > aside .menu .dd-item div:hover a {
   }
   .cta-panel {
     grid-template-columns: 1fr;
+  }
+
+  .landing-content {
+    padding: 0 1rem 2rem;
   }
 }
